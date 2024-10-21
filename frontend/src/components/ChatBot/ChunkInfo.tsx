@@ -251,6 +251,8 @@ const ChunkInfo: FC<ChunkProps> = ({ loading, chunks, mode }) => {
           viewPoint={viewPoint}
           nodeValues={neoNodes}
           relationshipValues={neoRels}
+          loading={loadingGraphView}
+          setLoading={setLoadingGraphView}
         />
       )}
     </>

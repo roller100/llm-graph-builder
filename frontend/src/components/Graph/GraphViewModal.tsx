@@ -40,13 +40,14 @@ const GraphViewModal: React.FunctionComponent<GraphViewModalProps> = ({
   nodeValues,
   relationshipValues,
   selectedRows,
+  setLoading, 
+  loading
 }) => {
   const nvlRef = useRef<NVL>(null);
   const [nodes, setNodes] = useState<ExtendedNode[]>([]);
   const [relationships, setRelationships] = useState<ExtendedRelationship[]>([]);
   const [allNodes, setAllNodes] = useState<ExtendedNode[]>([]);
   const [allRelationships, setAllRelationships] = useState<Relationship[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
   const [status, setStatus] = useState<'unknown' | 'success' | 'danger'>('unknown');
   const [statusMessage, setStatusMessage] = useState<string>('');
   const { userCredentials } = useCredentials();

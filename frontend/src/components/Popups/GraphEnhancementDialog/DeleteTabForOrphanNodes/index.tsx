@@ -80,7 +80,8 @@ export default function DeletePopUpForOrphanNodes({
       setNeoNodes,
       setNeoRels,
       setOpenGraphView,
-      setViewPoint
+      setViewPoint,
+      setLoading
     );
   };
 
@@ -311,6 +312,8 @@ export default function DeletePopUpForOrphanNodes({
           viewPoint={viewPoint}
           nodeValues={neoNodes}
           relationshipValues={neoRels}
+          loading={isLoading}
+          setLoading={setLoading}
         />
       )}
     </>

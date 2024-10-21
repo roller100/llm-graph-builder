@@ -9,11 +9,9 @@ export const handleGraphNodeClick = async (
     setNeoRels: React.Dispatch<React.SetStateAction<NeoRelationship[]>>,
     setOpenGraphView: React.Dispatch<React.SetStateAction<boolean>>,
     setViewPoint: React.Dispatch<React.SetStateAction<string>>,
-    setLoadingGraphView?: React.Dispatch<React.SetStateAction<boolean>>
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
-    if (setLoadingGraphView) {
-        setLoadingGraphView(true);
-    }
+    setOpenGraphView(true);
     try {
         const result = await getNeighbors(userCredentials, elementId);
         if (result && result.data.data.nodes.length > 0) {
@@ -25,16 +23,16 @@ export const handleGraphNodeClick = async (
             const relationships = result.data.data.relationships.filter(
                 (rel: NeoRelationship) => nodeIds.has(rel.end_node_element_id) && nodeIds.has(rel.start_node_element_id)
             );
+            setLoading(true);
             setNeoNodes(nodes);
             setNeoRels(relationships);
-            setOpenGraphView(true);
             setViewPoint('chatInfoView');
         }
     } catch (error: any) {
         console.error('Error fetching neighbors:', error);
     } finally {
-        if (setLoadingGraphView) {
-            setLoadingGraphView(false);
+        if (setLoading) {
+            setLoading(false);
         }
     }
 };

@@ -24,7 +24,7 @@ const CommunitiesInfo: FC<CommunitiesProps> = ({ loading, communities, mode }) =
       setNeoRels,
       setOpenGraphView,
       setViewPoint,
-      setLoadingGraphView
+      setLoadingGraphView,
     );
   };
 
@@ -69,6 +69,8 @@ const CommunitiesInfo: FC<CommunitiesProps> = ({ loading, communities, mode }) =
           viewPoint={viewPoint}
           nodeValues={neoNodes}
           relationshipValues={neoRels}
+          loading={loadingGraphView}
+          setLoading={setLoadingGraphView}
         />
       )}
     </>

@@ -114,7 +114,8 @@ export default function DeduplicationTab() {
       setNeoNodes,
       setNeoRels,
       setOpenGraphView,
-      setViewPoint
+      setViewPoint,
+      setLoading
     );
   };
 
@@ -346,6 +347,8 @@ export default function DeduplicationTab() {
           viewPoint={viewPoint}
           nodeValues={neoNodes}
           relationshipValues={neoRels}
+          loading={isLoading}
+          setLoading={setLoading}
         />
       )}
     </>

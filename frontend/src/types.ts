@@ -254,6 +254,8 @@ export interface GraphViewModalProps {
   nodeValues?: ExtendedNode[];
   relationshipValues?: ExtendedRelationship[];
   selectedRows?: CustomFile[] | undefined;
+  setLoading: Dispatch<SetStateAction<boolean>>;
+  loading: boolean
 }
 
 export type GraphType = 'Entities' | 'DocumentChunk' | 'Communities';
