@@ -20,6 +20,8 @@ const DropdownComponent: React.FC<ReusableDropdownProps> = ({
     onSelect(selectedOption);
   };
   const allOptions = useMemo(() => options, [options]);
+
+  console.log('width', screen);
   return (
     <>
       <div className={view === 'ContentView' ? 'w-[150px]' : ''}>
